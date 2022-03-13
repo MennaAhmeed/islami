@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:islami/home/tabs/sura_details.dart';
-
 class verseItem extends StatelessWidget {
   String text;
   int index;
