@@ -1,24 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:islami/home/tabs/verse_item.dart';
+import 'package:islami/home/quran/verse_item.dart';
 
 import '../../my_theme.dart';
 
-class HadethDetails extends StatefulWidget {
-  static const String routeName='hadethdetails';
+class SuraDetails extends StatefulWidget {
+  static const String routeName = 'suradetails';
 
   @override
-  State<HadethDetails> createState() => _HadethDetailsState();
+  State<SuraDetails> createState() => _SuraDetailsState();
 }
 
-class _HadethDetailsState extends State<HadethDetails> {
+class _SuraDetailsState extends State<SuraDetails> {
   List<String>verses = [];
-
   @override
   Widget build(BuildContext context) {
-    var args = ModalRoute.of(context)?.settings.arguments as hadethDetailsArgs;
+    var args = ModalRoute.of(context)?.settings.arguments as suraDetailsArgs;
     if(verses.length==0)
-      loadfile('${args.index+1}');
+    loadfile('${args.index+1}');
     return Stack(
       children: [
         Image.asset(
@@ -30,7 +29,7 @@ class _HadethDetailsState extends State<HadethDetails> {
           appBar: AppBar(
             title: Center(
               child: Text(
-                args.ahadethName,
+                args.suraName,
                 style: Theme.of(context).textTheme.headline1,
               ),
             ),
@@ -40,12 +39,12 @@ class _HadethDetailsState extends State<HadethDetails> {
             return verseItem(verses[index],index+1);
           },
               separatorBuilder: (buildContext,index){
-                return Container(
-                  height: 1,
-                  width: double.infinity,
-                  margin: EdgeInsets.symmetric(horizontal: 24),
-                  color: MyThemeData.colorGold,
-                );
+            return Container(
+              height: 1,
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 24),
+              color: MyThemeData.colorGold,
+            );
               },
               itemCount: verses.length
           ),
@@ -63,8 +62,8 @@ class _HadethDetailsState extends State<HadethDetails> {
     });
   }
 }
-class hadethDetailsArgs {
-  String ahadethName;
+class suraDetailsArgs {
+  String suraName;
   int index;
-  hadethDetailsArgs({required this.ahadethName, required this.index});
+  suraDetailsArgs({required this.suraName, required this.index});
 }

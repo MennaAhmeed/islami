@@ -5,6 +5,7 @@ class MyThemeData{
   static const colorGold=Color.fromARGB(255, 183, 147, 95);
 
   static var lightTheme=ThemeData(
+    primaryColor: colorGold,
     scaffoldBackgroundColor: Colors.transparent,
     appBarTheme: AppBarTheme(
       iconTheme: IconThemeData(

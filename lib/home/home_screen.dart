@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:islami/home/tabs/hadeth_tab.dart';
-import 'package:islami/home/tabs/quran_tab.dart';
+import 'package:islami/home/ahadeth/hadeth_tab.dart';
+import 'package:islami/home/quran/quran_tab.dart';
 import 'package:islami/home/tabs/radio_tab.dart';
 import 'package:islami/home/tabs/sebha_tab.dart';
 import 'package:islami/my_theme.dart';
@@ -22,14 +22,13 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         Scaffold(
           appBar: AppBar(
-            title: Center(
-              child: Text('Islami',
-                style: Theme
-                    .of(context)
-                    .textTheme
-                    .headline1,
-              ),
+            title: Text('Islami',
+              style: Theme
+                  .of(context)
+                  .textTheme
+                  .headline1,
             ),
+            centerTitle: true,
           ),
           bottomNavigationBar: BottomNavigationBar(
             currentIndex: currentindex,
