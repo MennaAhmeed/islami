@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:islami/home/quran/sura_item.dart';
 import 'package:islami/my_theme.dart';
+import 'package:provider/provider.dart';
+
+import '../providers/app_provider.dart';
 class QuranTab extends StatelessWidget {
   var suraNames=[
     "الفاتحه","البقرة","آل عمران","النساء","المائدة","الأنعام","الأعراف","الأنفال","التوبة","يونس","هود"
@@ -16,6 +19,7 @@ class QuranTab extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
+    var provider=Provider.of<AppProvider>(context);
     return Column(
       children: [
         Center(child: Image.asset('assets/images/quran_header.png'),),
@@ -30,7 +34,7 @@ class QuranTab extends StatelessWidget {
                 height: 1,
                 width: double.infinity,
                 margin: EdgeInsets.symmetric(horizontal: 24),
-                color: MyThemeData.colorGold,
+                color:provider.themeMode=='light'?MyThemeData.colorGold:MyThemeData.blueBlack,
               );
             }
             ),

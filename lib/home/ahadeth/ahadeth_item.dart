@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islami/home/ahadeth/hadeth_details.dart';
+import 'package:islami/my_theme.dart';
 import 'hadeth_tab.dart';
 
 class HadethItem extends StatelessWidget {
