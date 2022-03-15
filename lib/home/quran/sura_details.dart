@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami/home/quran/verse_item.dart';
+import 'package:provider/provider.dart';
 
 import '../../my_theme.dart';
+import '../providers/app_provider.dart';
 
 class SuraDetails extends StatefulWidget {
   static const String routeName = 'suradetails';
@@ -15,13 +17,14 @@ class _SuraDetailsState extends State<SuraDetails> {
   List<String>verses = [];
   @override
   Widget build(BuildContext context) {
+    var provider=Provider.of<AppProvider>(context);
     var args = ModalRoute.of(context)?.settings.arguments as suraDetailsArgs;
     if(verses.length==0)
     loadfile('${args.index+1}');
     return Stack(
       children: [
         Image.asset(
-          'assets/images/main_background.png',
+          provider.getMainBAckground(),
           width: double.infinity,
           fit: BoxFit.fill,
         ),

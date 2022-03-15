@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:islami/home/providers/app_provider.dart';
+import 'package:islami/my_theme.dart';
+import 'package:provider/provider.dart';
 import 'hadeth_tab.dart';
 
 class HadethDetails extends StatelessWidget {
   static const String routeName = 'hadethdetails';
   @override
   Widget build(BuildContext context) {
+    var provider=Provider.of<AppProvider>(context);
     var args = ModalRoute.of(context)?.settings.arguments as Hadeth; //hadeth al class aly gwah title w content
     return Stack(
       children: [
         Image.asset(
-          'assets/images/main_background.png',
-          width: double.infinity,
+        provider.getMainBAckground(),
+         width: double.infinity,
           fit: BoxFit.fill,
         ),
         Scaffold(
@@ -25,7 +29,7 @@ class HadethDetails extends StatelessWidget {
             margin: EdgeInsets.symmetric(vertical: 64, horizontal: 24),
             padding: EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: Colors.white,
+              color:provider.themeMode==ThemeMode.light?MyThemeData.colorWhite:MyThemeData.blueBlack,
               borderRadius: BorderRadius.circular(12),
             ),
             child: SingleChildScrollView(
