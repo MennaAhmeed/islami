@@ -1,8 +1,11 @@
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami/home/ahadeth/ahadeth_item.dart';
+import 'package:islami/home/providers/app_provider.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class HadethTab extends StatefulWidget {
   @override
@@ -14,6 +17,7 @@ class _HadethTabState extends State<HadethTab> {
 
   @override
   Widget build(BuildContext context) {
+    var provider=Provider.of<AppProvider>(context);
     loadHadethFile();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -23,8 +27,9 @@ class _HadethTabState extends State<HadethTab> {
             color: Theme.of(context).primaryColor,
           thickness: 3,
           ),
-          Text('Ahadeth',
-          style: Theme.of(context).textTheme.bodyText1,),
+          Text(AppLocalizations.of(context)!.ahadeth,
+
+            style: Theme.of(context).textTheme.bodyText1,),
           Divider(
             color: Theme.of(context).primaryColor,
           thickness: 3,

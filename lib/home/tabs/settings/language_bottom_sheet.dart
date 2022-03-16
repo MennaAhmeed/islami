@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islami/home/providers/app_provider.dart';
+import 'package:islami/my_theme.dart';
 import 'package:provider/provider.dart';
 
 class LanguageBottomSheet extends StatefulWidget {
@@ -13,6 +14,7 @@ class _LanguageBottomSheetState extends State<LanguageBottomSheet> {
   Widget build(BuildContext context) {
     var provider=Provider.of<AppProvider>(context);
     return Container(
+      color:provider.themeMode==ThemeMode.light?MyThemeData.colorWhite:MyThemeData.blueBlack,
       child: Column(
         children: [
           InkWell(

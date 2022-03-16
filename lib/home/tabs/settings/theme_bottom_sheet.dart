@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islami/home/providers/app_provider.dart';
+import 'package:islami/my_theme.dart';
 import 'package:provider/provider.dart';
 
 class ThemeBottomSheet extends StatefulWidget {
@@ -13,6 +14,7 @@ class _ThemeBottomSheetState extends State<ThemeBottomSheet> {
   Widget build(BuildContext context) {
     var provider=Provider.of<AppProvider>(context);
     return Container(
+      color:provider.themeMode==ThemeMode.light?MyThemeData.colorWhite:MyThemeData.blueBlack,
       child: Column(
         children: [
           InkWell(
@@ -40,7 +42,7 @@ class _ThemeBottomSheetState extends State<ThemeBottomSheet> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(text,
-              style:Theme.of(context).textTheme.subtitle1?.copyWith(color: Theme.of(context).primaryColor,),
+              style:Theme.of(context).textTheme.subtitle1?.copyWith(color:Theme.of(context).primaryColor,),
             ),
             Icon(Icons.check,
               color: Theme.of(context).primaryColor,),
