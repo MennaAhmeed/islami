@@ -4,8 +4,8 @@ import 'package:islami/home/tabs/settings/theme_bottom_sheet.dart';
 import 'package:islami/my_theme.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
 import 'language_bottom_sheet.dart';
+
 class SettingsTab extends StatefulWidget {
 static const String routeName='settingstab';
 
@@ -22,7 +22,11 @@ class _SettingsTabState extends State<SettingsTab> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text(AppLocalizations.of(context)!.language,),
+            Text(AppLocalizations.of(context)!.language,
+              style:TextStyle(
+                  color: provider.themeMode==ThemeMode.light?MyThemeData.colorGold:MyThemeData.colorYellow,
+              ),
+            ),
             InkWell(
               onTap: (){
                 showLanguageBottomSheet();
@@ -43,7 +47,11 @@ class _SettingsTabState extends State<SettingsTab> {
                 ),
               ),
             ),
-            Text(AppLocalizations.of(context)!.theme,),
+            Text(AppLocalizations.of(context)!.theme,
+              style:TextStyle(
+                  color: provider.themeMode==ThemeMode.light?MyThemeData.colorGold:MyThemeData.colorYellow,
+              ),
+            ),
             InkWell(
               onTap: (){
                 showThemeBottomSheet();

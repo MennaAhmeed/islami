@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:islami/home/providers/app_provider.dart';
 import 'package:islami/my_theme.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SebhaTab extends StatefulWidget {
   @override
@@ -46,7 +47,8 @@ class _SebhaTabState extends State<SebhaTab> {
             ],
           ),
           SizedBox(height: 20,),
-          Text('عدد التسبيحات',style: Theme.of(context).textTheme.bodyText1,),
+          Text(AppLocalizations.of(context)!.numberofcounters ,
+            style: Theme.of(context).textTheme.bodyText1,),
           SizedBox(height: 15,),
           Container(
             padding: EdgeInsets.all(20),
